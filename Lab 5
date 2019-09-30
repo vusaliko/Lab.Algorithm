@@ -1,0 +1,168 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int n, i, j, minx, miny, maxx, maxy;
+	float min, max;
+	cout << "Введите порядок матрицы, а затем ее элементы" << endl;
+	cin >> n;
+	int** a = new int*[n];
+	for (i = 0; i < n; i++) {
+		a[i] = new int[n];
+		for (j = 0; j < n; j++) cin >> a[i][j];
+	}
+	min = a[0][0];
+	minx = 1;
+	miny = 1;
+	max = a[0][0];
+	maxx = 1;
+	maxy = 1;
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++) {
+			if (a[i][j] > max) {
+				max = a[i][j];
+				maxx = j+1;
+				maxy = i+1;
+			}if (a[i][j] < min) {
+				min = a[i][j];
+				minx = j+1;
+				miny = i+1;
+			}
+		}
+	}
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++) {
+			cout << a[i][j]<<"\t";
+		}
+		cout << endl;
+	}
+	cout << "Минимальный элемент:" << min << " (" << miny << ";" << minx << ")" << endl;
+	cout << "Максимальный элемент:" << max << " (" << maxy << ";" << maxx << ")" << endl;
+}
+########################################################################################################################################
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int n, i, j, maxx;
+	float max, temp;
+	cout << "Введите порядок матрицы, а затем ее элементы" << endl;
+	cin >> n;
+	int** a = new int* [n];
+	for (i = 0; i < n; i++) {
+		a[i] = new int[n];
+		for (j = 0; j < n; j++) cin >> a[i][j];
+	}for (i = 0; i < n; i++) {
+		max = a[i][0];
+		maxx = 0;
+		for (j = 0; j < n; j++) {
+			if (a[i][j] > max) {
+				maxx = j;
+				max = a[i][j];
+			}
+		}
+		temp = a[i][i];
+		a[i][i] = a[i][maxx];
+		a[i][maxx] = temp;
+	}for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++) {
+			cout << a[i][j] << "\t";
+		}cout << endl;
+	}
+}
+########################################################################################################################################
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int n, m,i,j;
+	cout << "Введите порядок матрицы, а затем ее элементы" << endl;
+	cin >> n;
+	cin >> m;
+	int* sum = new int[n];
+	int* mult = new int[n];
+	int** a = new int* [n];
+	for (i = 0; i < n; i++) {
+		a[i] = new int[n];
+		for (j = 0; j < m; j++) cin >> a[i][j];
+	}
+	for (i = 0; i < n; i++) {
+		sum[i] = 0;
+		mult[i] = 1;
+		for (j = 0; j < m; j++) {
+			sum[i] = sum[i] + a[i][j];
+			mult[i] = mult[i] * a[i][j];
+		}
+	}for (i = 0; i < n; i++) {
+		cout << sum[i] << "\t" << mult[i] << endl;
+	}
+}
+########################################################################################################################################
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int n, m, i, j;
+	cout << "Введите порядок матрицы, а затем ее элементы" << endl;
+	cin >> n;
+	cin >> m;
+	int* sum = new int[n];
+	int* count = new int[n];
+	int** a = new int* [n];
+	for (i = 0; i < n; i++) {
+		a[i] = new int[n];
+		for (j = 0; j < m; j++) cin >> a[i][j];
+	}for (i = 0; i < m; i++) {
+		sum[i] = 0;
+		count[i] = 0;
+		for (j = 0; j < n; j++) {
+			if (a[j][i] > 0) {
+				count[i]++;
+				sum[i] = sum[i] + a[j][i];
+			}
+		}
+	}for (i = 0; i < m; i++) cout << "\t" << sum[i];
+	cout << endl;
+	for (i = 0; i < m; i++) cout << "\t" << count[i];
+}
+########################################################################################################################################
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int n, i, j, k, sum = 0, mult = 1, count = 0, count2 = 0, mult2 = 1, sum2 = 0, count3 = 0;
+	cout << "Введите порядок матрицы, а затем ее элементы" << endl;
+	cin >> n;
+	int** a = new int* [n];
+	for (i = 0; i < n; i++) {
+		a[i] = new int[n];
+		for (j = 0; j < n; j++) cin >> a[i][j];
+	}for (i = 1; i < n; i++) {
+		for (j = 0; j < i; j++) {
+			count = count + 1;
+			mult = mult * a[i][j];
+			if (a[i][j] > 0) {
+				count3 = count3 + 1;
+				mult2 = mult2 * a[i][j];
+			}
+		}
+	}cout << "1)Произведение= " << mult << " Число= " << count << endl;
+	count = 0;
+	mult = 1;
+	for (j = 1; j < n; j++) {
+		for (i = 0; i < j; i++) {
+			count = count + 1;
+			sum = sum + a[i][j];
+			if (a[i][j] < 0) {
+				count2 = count2 + 1;
+				sum2 = sum2 + a[i][j];
+			}
+		}
+	}cout << "2)Сумма= " << sum << " Число= " << count << endl << "3)Произведение= " << mult2 << " Число= " << count3 << endl << "4)Сумма= " << sum2 << " Число= " << count2 << endl;
+}
+#########################################################################################################################################
