@@ -1,0 +1,198 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Лабораторная_7._2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите коэффициенты (A1,B1,C1,D1,A2,B2,C2,D2,A3,B3,C3,D4):");
+            float d, d1, d2, d3;
+            int i,y;
+            float[,] a = new float[4, 4];
+            for (i = 0; i < 3; i++) for (y = 0; y < 4; y++) a[i, y]=Convert.ToSingle(Console.ReadLine());
+            d = a[0, 0] * a[1, 1] * a[2, 2] + a[0, 1] * a[1, 2] * a[2, 0] + a[0, 2] * a[1, 0] * a[2, 1] - a[2, 0] * a[1, 1] * a[0, 2] - a[2, 1] * a[1, 2] * a[0, 0] - a[2, 2] * a[1, 0] * a[0, 1];
+            d1 = a[0, 3] * a[1, 1] * a[2, 2] + a[0, 1] * a[1, 2] * a[2, 3] + a[0, 2] * a[1, 3] * a[2, 1] - a[2, 3] * a[1, 1] * a[0, 2] - a[2, 1] * a[1, 2] * a[0, 3] - a[2, 2] * a[1, 3] * a[0, 1];
+            d2 = a[0, 0] * a[1, 3] * a[2, 2] + a[0, 3] * a[1, 2] * a[2, 0] + a[0, 2] * a[1, 0] * a[2, 3] - a[2, 0] * a[1, 3] * a[0, 2] - a[2, 3] * a[1, 2] * a[0, 0] - a[2, 2] * a[1, 0] * a[0, 3];
+            d3 = a[0, 0] * a[1, 1] * a[2, 3] + a[0, 1] * a[1, 3] * a[2, 0] + a[0, 3] * a[1, 0] * a[2, 1] - a[2, 0] * a[1, 1] * a[0, 3] - a[2, 1] * a[1, 3] * a[0, 0] - a[2, 3] * a[1, 0] * a[0, 1];
+            Console.WriteLine($"x1={d1/d}");
+            Console.WriteLine($"x2={d2/d}");
+            Console.WriteLine($"x3={d3/d}");
+            Console.ReadKey();
+        }
+    }
+}
+###############################################################################################################################################################################################################
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Лабораторная_7._2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double q, e, xn, xs=1F;
+            Console.WriteLine("Введите числа q и e:");
+            q = Convert.ToSingle(Console.ReadLine());
+            e = Convert.ToSingle(Console.ReadLine());
+            xn = 0.5 * (xs + q / xs);
+            while (xn - xs >= e)
+            {
+                xs = xn;
+                xn = 0.5 * (xs + q / xs);
+            }
+            xs = Math.Sqrt(q);
+            Console.WriteLine($"sqrt={xs} ньютон ={xn} разница = {Math.Abs(xn - xs)}");
+            Console.ReadKey();
+            return;
+        }
+    }
+}
+###############################################################################################################################################################
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Лабораторная_7._3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n,i=1,y=0;
+            Console.WriteLine("Введите число:");
+            n = Convert.ToInt32(Console.ReadLine());
+            while (n - i > 0)
+            {
+                i = i * 10;
+                y++;
+            }
+            for (i = y; i > 0; i--) Console.WriteLine((n % Math.Pow(10, i) - n % Math.Pow(10, i - 1)) / Math.Pow(10, i - 1));
+            Console.Read();
+            return;
+        }
+    }
+}
+##################################################################################################################################################
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Лабораторная_7._4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n,j, i, a, b;
+            Console.WriteLine("Введите число N<12:");
+            n = Convert.ToInt32(Console.ReadLine());
+            int[] mas = new int[n];
+            mas[0] = 1;
+            Console.WriteLine("1");
+            for (i = 1; i < n; i++)
+            {
+                a = 0;
+                for ( j = 0; j <= i; j++)
+                {
+                    b = mas[j];
+                    mas[j] += a;
+                    a = b;
+                    Console.Write($"{mas[j]} \t");
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+        }
+    }
+}
+############################################################################################################################################
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+namespace Лабораторная_7._5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string s,c,temp;
+            int n,i,length,lengthX,y;
+            Random r = new Random();
+            link1:
+                Console.WriteLine("Введите полное имя файла:");
+                s = Console.ReadLine();
+            link2:
+                Console.WriteLine("Для выхода из программы, наберите 0");
+                Console.WriteLine("Для записи информации в файл, наберите 1");
+                Console.WriteLine("Для просмотра информации содержащейся в файле, наберите 2");
+                Console.WriteLine("Для построчного считывания и записи строк задом наперед, наберите 3");
+                Console.WriteLine("Для вывода самой длинной строки, наберите 4");
+                Console.WriteLine("Для перемешивания строк в случайном порядке, наберите 5");
+                Console.WriteLine("Для смены пути, нажмите 6");
+                n = Convert.ToInt32(Console.ReadLine());
+                if (n > 6 || n < 0) Console.WriteLine("Не правильный выбор!");
+                if (n == 6) goto link1;
+            int k = 0;
+            if (n == 0) return;
+            if (n == 1) using (StreamWriter file = File.AppendText(s)) file.WriteLine(Console.ReadLine());
+            if (n == 2) using (StreamReader file = File.OpenText(s)) while ((c = file.ReadLine()) != null) Console.WriteLine(c);
+            if (n == 3)
+            {
+                using (StreamReader file = File.OpenText(s)) while ((c = file.ReadLine()) != null) Console.WriteLine(c);
+                using (StreamReader file = File.OpenText(s)) while ((c = file.ReadLine()) != null) k++;
+                string[] info = new string[k];
+                using (StreamReader file = File.OpenText(s)) for (i = 0; i < k; i++) info[i] = file.ReadLine();
+                using (FileStream file = File.Open(s, FileMode.Open)) file.SetLength(0);
+                using (StreamWriter file = File.AppendText(s)) for(i=k-1;i>=0;i--) file.WriteLine(Convert.ToString(info[i]));
+            }
+            if (n == 4)
+            {
+                using (StreamReader file = File.OpenText(s)) while ((c = file.ReadLine()) != null) k++;
+                string[] info = new string[k];
+                using (StreamReader file = File.OpenText(s)) for (i = 0; i < k; i++) info[i] = file.ReadLine();
+                using (StreamReader file = File.OpenText(s)) length = ((file.ReadLine()).Length);
+                lengthX = 0;
+                using (StreamReader file = File.OpenText(s)) for (i = 0; i < k; i++) if ((y = ((file.ReadLine()).Length)) > length)
+                        {
+                            length = y;
+                            lengthX = i;
+                        }
+                Console.WriteLine(info[lengthX]);
+            }
+            if (n == 5)
+            {
+                using (StreamReader file = File.OpenText(s)) while ((c = file.ReadLine()) != null) k++;
+                string[] info = new string[k];
+                using (StreamReader file = File.OpenText(s)) for (i = 0; i < k; i++) info[i] = file.ReadLine();
+                for (i = 0; i < k; i++)
+                {
+                    y = r.Next(0, k - 1);
+                    temp = info[i];
+                    info[i] = info[y];
+                    info[y] = temp;
+                }
+                using (FileStream file = File.Open(s, FileMode.Open)) file.SetLength(0);
+                using (StreamWriter file = File.AppendText(s)) for (i=0;i<k;i++) file.WriteLine(Convert.ToString(info[i]));
+            }
+            Console.WriteLine("Операция успешно выполнена!");
+            goto link2;
+        }
+    }
+}
+############################################################################################################################################################
