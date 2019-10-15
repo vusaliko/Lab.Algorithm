@@ -12,11 +12,11 @@ namespace Лабораторная_7._6
     {
         static void Main(string[] args)
         {
-            long i;
+            int i;
             Random r = new Random();
             Stopwatch vrema = new Stopwatch();
-            long[] puzir = new long[5], puzirv = new long[5], vibor = new long[5], viborv = new long[5], vstavka = new long[5], vstavkav = new long[5], gnom = new long[5], gnomv = new long[5], bistrv = new long[5];
-            long[] a1 = new long[1000], a2 = new long[1500], a3 = new long[2000], a4 = new long[5000], a5 = new long[10000];
+            double[] puzirv = new double[5], viborv = new double[5], vstavkav = new double[5], gnomv = new double[5], bistrv = new double[5];
+            double[] a1 = new double[1000], a2 = new double[1500], a3 = new double[2000], a4 = new double[5000], a5 = new double[10000];
             for (i = 0; i < 1000; i++) a1[i] = r.Next();
             for (i = 0; i < 1500; i++) a2[i] = r.Next();
             for (i = 0; i < 2000; i++) a3[i] = r.Next();
@@ -24,154 +24,153 @@ namespace Лабораторная_7._6
             for (i = 0; i < 10000; i++) a5[i] = r.Next();
 
             vrema.Start();
-            puzir[0] = Bubble(a1);
+            Bubble(a1);
             vrema.Stop();
-            puzirv[0] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            puzirv[0] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             Console.WriteLine("Пузырек завершено!");
             vrema.Start();
-            puzir[1] = Bubble(a2);
+            Bubble(a2);
             vrema.Stop();
-            puzirv[1] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            puzirv[1] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             Console.WriteLine("Пузырек завершено!");
             vrema.Start();
-            puzir[2] = Bubble(a3);
+            Bubble(a3);
             vrema.Stop();
-            puzirv[2] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            puzirv[2] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             Console.WriteLine("Пузырек завершено!");
             vrema.Start();
-            puzir[3] = Bubble(a4);
+            Bubble(a4);
             vrema.Stop();
-            puzirv[3] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            puzirv[3] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             Console.WriteLine("Пузырек завершено!");
             vrema.Start();
-            puzir[4] = Bubble(a5);
+            Bubble(a5);
             vrema.Stop();
-            puzirv[4] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            puzirv[4] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             Console.WriteLine("Пузырек завершено!");
             vrema.Start();
-            vibor[0] = Select(a1);
+            Select(a1);
             vrema.Stop();
-            viborv[0] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            viborv[0] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            vibor[1] = Select(a2);
+            Select(a2);
             vrema.Stop();
-            viborv[1] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            viborv[1] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            vibor[2] = Select(a3);
+            Select(a3);
             vrema.Stop();
-            viborv[2] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            viborv[2] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            vibor[3] = Select(a4);
+            Select(a4);
             vrema.Stop();
-            viborv[3] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            viborv[3] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            vibor[4] = Select(a5);
+            Select(a5);
             vrema.Stop();
-            viborv[4] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            viborv[4] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             Console.WriteLine("Выбор завершено!");
             vrema.Start();
-            vstavka[0] = Insert(a1);
+            Insert(a1);
             vrema.Stop();
-            vstavkav[0] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            vstavkav[0] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            vstavka[1] = Insert(a2);
+            Insert(a2);
             vrema.Stop();
-            vstavkav[1] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            vstavkav[1] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            vstavka[2] = Insert(a3);
+            Insert(a3);
             vrema.Stop();
-            vstavkav[2] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            vstavkav[2] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            vstavka[3] = Insert(a4);
+            Insert(a4);
             vrema.Stop();
-            vstavkav[3] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            vstavkav[3] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            vstavka[4] = Insert(a5);
+            Insert(a5);
             vrema.Stop();
-            vstavkav[4] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            vstavkav[4] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             Console.WriteLine("Вставка завершено!");
             vrema.Start();
-            gnom[0] = Gnom(a1);
+            Gnom(a1);
             vrema.Stop();
-            gnomv[0] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            gnomv[0] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            gnom[1] = Gnom(a2);
+            Gnom(a2);
             vrema.Stop();
-            gnomv[1] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            gnomv[1] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            gnom[2] = Gnom(a3);
+            Gnom(a3);
             vrema.Stop();
-            gnomv[2] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            gnomv[2] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            gnom[3] = Gnom(a4);
+            Gnom(a4);
             vrema.Stop();
-            gnomv[3] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            gnomv[3] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
-            gnom[4] = Gnom(a5);
+            Gnom(a5);
             vrema.Stop();
-            gnomv[4] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            gnomv[4] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             Console.WriteLine("Гном завершено!");
             vrema.Start();
-            Quick(a1,0,999);
+            Quick(a1, 0, 999);
             vrema.Stop();
-            bistrv[0] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            bistrv[0] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
             Quick(a2, 0, 1499);
             vrema.Stop();
-            bistrv[1] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            bistrv[1] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
             Quick(a3, 0, 1999);
             vrema.Stop();
-            bistrv[2] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            bistrv[2] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
             Quick(a4, 0, 4999);
             vrema.Stop();
-            bistrv[3] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            bistrv[3] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             vrema.Start();
             Quick(a5, 0, 9999);
             vrema.Stop();
-            bistrv[4] = Convert.ToInt32(vrema.ElapsedMilliseconds);
+            bistrv[4] = (vrema.Elapsed.TotalMilliseconds);
             vrema.Reset();
             Console.WriteLine("Быстрая завершена!");
-            Console.WriteLine("{puzir[0]}раз/{puzirv[0]}мс {puzir[1]}раз/{puzirv[1]}мс {puzir[2]}раз/{puzirv[2]}мс {puzir[3]}раз/{puzirv[3]}мс {puzir[4]}раз/{puzirv[4]}мс");
-            Console.WriteLine("{vibor[0]}раз/{viborv[0]} {vibor[1]}раз/{viborv[1]}мс {vibor[2]}раз/{viborv[2]}мс {vibor[3]}раз/{viborv[3]}мс {vibor[4]}раз/{viborv[4]}мс");
-            Console.WriteLine("{vstavka[0]}раз/{vstavkav[0]} {vstavka[1]}раз/{vstavkav[1]}мс {vstavka[2]}раз/{vstavkav[2]}мс {vstavka[3]}раз/{vstavkav[3]}мс {vstavka[4]}раз/{vstavkav[4]}мс");
-            Console.WriteLine("{gnom[0]}раз/{gnomv[0]}мс {gnom[1]}раз/{gnomv[1]}мс {gnom[2]}раз/{gnomv[2]}мс {gnom[3]}раз/{gnomv[3]}мс {gnom[4]}раз/{gnomv[4]}мс");
-            Console.WriteLine("{bistrv[0]}мс {bistrv[1]}мс {bistrv[2]}мс {bistrv[3]}мс {bistrv[4]}мс");
+            Console.WriteLine("Пызурьком 1000: {0}мс   1500: {1}мс   2000: {2}мс   5000: {3}мс   10000: {4}мс", puzirv[0], puzirv[1], puzirv[2], puzirv[3], puzirv[4]);
+            Console.WriteLine("Выбором   1000: {0}мс   1500: {1}мс   2000: {2}мс   5000: {3}мс   10000: {4}мс", viborv[0], viborv[1], viborv[2], viborv[3], viborv[4]);
+            Console.WriteLine("Вставками 1000: {0}мс   1500: {1}мс   2000: {2}мс   5000: {3}мс   10000: {4}мс", vstavkav[0], vstavkav[1], vstavkav[2], vstavkav[3], vstavkav[4]);
+            Console.WriteLine("Гномья    1000: {0}мс   1500: {1}мс   2000: {2}мс   5000: {3}мс   10000: {4}мс", gnomv[0], gnomv[1], gnomv[2], gnomv[3], gnomv[4]);
+            Console.WriteLine("Быстрая   1000: {0}мс   1500: {1}мс   2000: {2}мс   5000: {3}мс   10000: {4}мс",bistrv[0],bistrv[1],bistrv[2],bistrv[3],bistrv[4]);
             Console.ReadKey();
         }
-        static long Bubble(long[] mas)
+        static void Bubble(double[] mas)
         {
-            long temp, k = 0;
-            for (long i = 0; i < mas.Length - 1; i++)
+            double temp;
+            for (int i = 0; i < mas.Length - 1; i++)
             {
                 bool f = false;
-                k++;
-                for (long j = i+1; j < mas.Length - i - 1; j++)
+                for (int j = i + 1; j < mas.Length - i - 1; j++)
                 {
                     if (mas[i] > mas[j])
                     {
@@ -183,13 +182,12 @@ namespace Лабораторная_7._6
                 }
                 if (!f) break;
             }
-            return k;
         }  //Пузырек
-        static void Quick(long[] arr, long first, long last)
+        static void Quick(double[] arr, int first, int last)
         {
-            long p = arr[(last - first) / 2 + first];
-            long temp;
-            long i = first, j = last;
+            double p = arr[(last - first) / 2 + first];
+            double temp;
+            int i = first, j = last;
             while (i <= j)
             {
                 while (arr[i] < p && i <= last) ++i;
@@ -205,16 +203,16 @@ namespace Лабораторная_7._6
             if (j > first) Quick(arr, first, j);
             if (i < last) Quick(arr, i, last);
         }  //Быстрая
-        static long Select(long[] arr)
+        static void Select(double[] arr)
         {
-            long min, temp, k = 0;
-            long length = arr.Length;
+            int min;
+            double temp;
+            double length = arr.Length;
 
-            for (long i = 0; i < length - 1; i++)
+            for (int i = 0; i < length - 1; i++)
             {
-                k++;
                 min = i;
-                for (long j = i + 1; j < length; j++)
+                for (int j = i + 1; j < length; j++)
                 {
                     if (arr[j] < arr[min])
                     {
@@ -228,36 +226,34 @@ namespace Лабораторная_7._6
                     arr[min] = temp;
                 }
             }
-            return k;
         } //Выбором
-        static long Insert(long[] array)
+        static void Insert(double[] array)
         {
-            long k=0;
-            for (long i = 1; i < array.Length; i++)
+            for (int i = 1; i < array.Length; i++)
             {
-                long cur = array[i];
-                long j = i;
+                double cur = array[i];
+                int j = i;
                 while (j > 0 && cur < array[j - 1])
                 {
-                    k++;
                     array[j] = array[j - 1];
                     j--;
                 }
                 array[j] = cur;
             }
-            return k;
         } //Вставками
-        static long Gnom(long[] mas)
+        static void Gnom(double[] mas)
         {
-            long k = 0, i = 1, tmp;
-            while (i < mas.Length) {
-                k++;
+            int i = 1;
+            double tmp;
+            while (i < mas.Length)
+            {
                 if (i == 0 || mas[i - 1] <= mas[i]) i++;
                 else
                 {
                     tmp = mas[i]; mas[i] = mas[i - 1]; mas[i - 1] = tmp;
                     i--;
-                } }
-            return k;
+                }
+            }
         } //Гномья
-    } }
+    }
+}
